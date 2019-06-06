@@ -118,7 +118,7 @@ let handleClick = (_event, _self) => {
 };
 
 let listToElement = (list: list(ReasonReact.reactElement)) =>
-  ReasonReact.arrayToElement(Array.of_list(list));
+  ReasonReact.array(Array.of_list(list));
 
 let rec mapRange = (fn, a, z) =>
   a < z ? [fn(a), ...mapRange(fn, a + 1, z)] : [];
@@ -334,7 +334,7 @@ let make = _children => {
   render: self =>
     <div className="cards">
       (
-        ReasonReact.arrayToElement(
+        ReasonReact.array(
           List.mapi(
             (n, aCard) =>
               cardComp(aCard |> xOfSelectable |> intOfCard, aCard, _ev =>
